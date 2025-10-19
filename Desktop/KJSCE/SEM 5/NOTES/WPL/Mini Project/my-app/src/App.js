@@ -1,7 +1,7 @@
-// src/App.js
 import React, { useState, useEffect } from "react";
+import Login from "./Login"; // Import login component
 import jumpingJackGif from "./assets/jumpingjack.gif";
-import "./App.css"; // Import the CSS file
+import "./App.css";
 
 const initialPlayers = [
   { id: 1, name: "PlayerOne", score: 120, avatar: "🚴" },
@@ -15,6 +15,7 @@ const dailyQuests = [
 ];
 
 function App() {
+  const [user, setUser] = useState(null); // Logged-in user
   const [players, setPlayers] = useState(initialPlayers);
   const [myScore, setMyScore] = useState(0);
   const [energyPoints, setEnergyPoints] = useState(0);
@@ -24,8 +25,9 @@ function App() {
   const [socialMessage, setSocialMessage] = useState("");
 
   useEffect(() => {
+    if (!user) return; // Don't run until logged in
     const interval = setInterval(() => {
-      const pointsEarned = Math.floor(Math.random() * 10) + 5; // 5 to 14
+      const pointsEarned = Math.floor(Math.random() * 10) + 5;
       setMyScore((score) => score + pointsEarned);
       setEnergyPoints((ep) => ep + pointsEarned);
       setFeedback(`Great! You earned ${pointsEarned} points!`);
@@ -36,7 +38,7 @@ function App() {
     }, 8000);
 
     return () => clearInterval(interval);
-  }, [achievements, myScore]);
+  }, [achievements, myScore, user]);
 
   const completeQuest = () => {
     setSocialMessage(`I just completed the quest: "${currentQuest}" with FitPlay!`);
@@ -46,11 +48,17 @@ function App() {
     );
   };
 
+  if (!user) {
+    return <Login onLogin={setUser} />;
+  }
+
   return (
     <div className="App">
       <header>
         <h1>FitPlay Multiplayer Fitness Game</h1>
+        <p>User: {user}</p>
         <p>Energy Points: {energyPoints} ⚡</p>
+        <button onClick={() => setUser(null)}>Sign Out</button>
       </header>
 
       <section>
@@ -67,7 +75,7 @@ function App() {
           style={{
             width: 200,
             height: "auto",
-            transform: `scale(${1 + energyPoints / 100})`, // scale grows with points
+            transform: `scale(${1 + energyPoints / 100})`,
           }}
         />
       </section>

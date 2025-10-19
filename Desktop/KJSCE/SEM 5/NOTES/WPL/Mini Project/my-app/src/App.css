@@ -1,5 +1,6 @@
 /* App.css */
 
+/* Main App Container */
 .App {
   text-align: center;
   background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
@@ -9,6 +10,7 @@
   color: #fff;
 }
 
+/* Header */
 header {
   margin-bottom: 30px;
 }
@@ -25,6 +27,7 @@ h2 {
   text-shadow: 1px 1px 2px #0007;
 }
 
+/* Buttons */
 button {
   background: #ff4d6d;
   border: none;
@@ -43,6 +46,7 @@ button:hover {
   box-shadow: 0px 8px 20px rgba(255, 29, 60, 0.6);
 }
 
+/* Sections */
 section {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
@@ -52,6 +56,7 @@ section {
   margin: 20px auto;
 }
 
+/* Lists */
 ul {
   list-style-type: none;
   padding: 0;
@@ -64,13 +69,67 @@ li {
   color: #fafafa;
 }
 
+/* Paragraphs & List Items */
 p, li {
   text-shadow: 0 1px 1px rgb(0 0 0 / 0.4);
 }
 
+/* Images */
 img {
   border-radius: 15px;
   box-shadow: 0 8px 12px rgb(0 0 0 / 0.3);
   margin-top: 10px;
   transition: transform 0.5s ease;
+}
+
+/* ===== Login / Sign In Form ===== */
+.login-container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  margin: 80px auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  color: #fff;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #ffe600;
+  text-shadow: 1px 1px 2px #0007;
+}
+
+.login-container input {
+  width: 80%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.login-container button {
+  width: 50%;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+/* Toggle Sign In / Sign Up */
+.toggle-sign {
+  margin-top: 12px;
+  cursor: pointer;
+  color: #ff4d6d;
+  font-weight: 600;
+}
+
+.toggle-sign:hover {
+  text-decoration: underline;
+}
+
+/* Feedback / Messages */
+.message {
+  margin-top: 10px;
+  color: #ffe600;
+  font-weight: bold;
 }
