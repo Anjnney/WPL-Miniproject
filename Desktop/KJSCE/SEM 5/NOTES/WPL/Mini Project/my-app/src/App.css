@@ -3,11 +3,15 @@
 /* Main App Container */
 .App {
   text-align: center;
-  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%); /* New green gradient */
   min-height: 100vh;
-  padding: 20px;
+  padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top */
 }
 
 /* Header */
@@ -18,32 +22,32 @@ header {
 h1 {
   font-weight: 900;
   font-size: 3rem;
-  text-shadow: 2px 2px 4px #000a;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Darker shadow */
 }
 
 h2 {
   margin-top: 30px;
-  color: #ffe600;
-  text-shadow: 1px 1px 2px #0007;
+  color: #7b4397; /* New accent color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Darker shadow */
 }
 
 /* Buttons */
 button {
-  background: #ff4d6d;
+  background: #7b4397; /* New accent color */
   border: none;
   border-radius: 25px;
   padding: 10px 30px;
   font-size: 1.1rem;
   cursor: pointer;
-  box-shadow: 0px 5px 15px rgba(255, 77, 109, 0.4);
+  box-shadow: 0px 5px 15px rgba(123, 67, 151, 0.4); /* New shadow color */
   color: white;
   transition: background 0.3s ease;
   margin-top: 10px;
 }
 
 button:hover {
-  background: #ff1d3c;
-  box-shadow: 0px 8px 20px rgba(255, 29, 60, 0.6);
+  background: #56ab2f; /* New hover color */
+  box-shadow: 0px 8px 20px rgba(86, 171, 47, 0.6); /* New hover shadow */
 }
 
 /* Sections */
@@ -51,7 +55,7 @@ section {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 8px 15px rgb(0 0 0 / 0.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Darker shadow */
   max-width: 600px;
   margin: 20px auto;
 }
@@ -66,31 +70,49 @@ li {
   margin: 6px 0;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #fafafa;
+  color: #fff; /* White text */
 }
 
 /* Paragraphs & List Items */
 p, li {
-  text-shadow: 0 1px 1px rgb(0 0 0 / 0.4);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); /* Darker shadow */
 }
 
 /* Images */
 img {
   border-radius: 15px;
-  box-shadow: 0 8px 12px rgb(0 0 0 / 0.3);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Darker shadow */
   margin-top: 10px;
   transition: transform 0.5s ease;
 }
 
 /* ===== Login / Sign In Form ===== */
+.login-page-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Reduced gap for vertical layout */
+  width: 100%;
+  max-width: 400px; /* Adjusted max-width for a single column */
+}
+
+.login-image-container {
+  max-width: 350px;
+}
+
+.workout-gif {
+  width: 100%;
+  border-radius: 15px;
+}
+
 .login-container {
   background: rgba(255, 255, 255, 0.2);
   padding: 30px;
   border-radius: 15px;
-  max-width: 400px;
-  margin: 80px auto;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   color: #fff;
+  width: 100%;
 }
 
 .login-container h2 {
@@ -101,12 +123,13 @@ img {
 
 .login-container input {
   width: 80%;
-  padding: 10px;
+  padding: 12px;
   margin: 8px 0;
   border-radius: 8px;
-  border: none;
-  outline: none;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
+  color: #333;
 }
 
 .login-container button {
@@ -132,4 +155,181 @@ img {
   margin-top: 10px;
   color: #ffe600;
   font-weight: bold;
+}
+
+.motivational-quote {
+  margin-top: 20px;
+  font-style: italic;
+  color: #000; /* Black */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== Exercise List ===== */
+.exercise-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.exercise-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exercise-item h3 {
+  margin-top: 0;
+  color: #c06c84; /* New accent color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Darker shadow */
+}
+
+.exercise-item input[type="number"] {
+  width: 80%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #c06c84; /* New border color */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.exercise-item button {
+  width: 80%;
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.exercise-item button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.completed-status {
+  color: #a8e063; /* New accent color */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* ===== Main App Layout (Logged In) ===== */
+.App {
+  padding: 20px;
+  justify-content: flex-start; /* Align content to the top */
+}
+
+.app-header {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Limit header width */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.user-stats {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.user-stats p span {
+  color: #a8e063; /* New accent color */
+  font-weight: 700;
+}
+
+.sign-out-button {
+  margin-top: 0;
+  padding: 8px 20px;
+  font-size: 1rem;
+}
+
+.main-content-area {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Main content (exercises) and sidebar */
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.main-content-area section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: 0; /* Override default section margin */
+}
+
+.sidebar-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.player-stats-section .feedback-message {
+  color: #a8e063; /* New accent color */
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.share-button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  font-size: 1rem;
+}
+
+.motivational-quote-display {
+  margin-top: 15px;
+  font-style: italic;
+  color: #c06c84; /* New accent color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.resting-facts-section h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.fitness-fact-display {
+  margin-top: 15px;
+  font-style: italic;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .user-stats {
+    justify-content: center;
+  }
+
+  .main-content-area {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
 }

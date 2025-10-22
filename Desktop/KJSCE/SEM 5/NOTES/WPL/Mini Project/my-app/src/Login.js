@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./App.css"; // Import the CSS file
+import jumpingJack from "./assets/jumpingjack.gif";
 
 function Login({ onLogin }) {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -34,41 +36,43 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h2>{isSignUp ? "Sign Up" : "Sign In"}</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          style={{ padding: "10px", margin: "5px", borderRadius: "5px" }}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={{ padding: "10px", margin: "5px", borderRadius: "5px" }}
-        />
-        <br />
-        <button type="submit" style={{ marginTop: "10px" }}>
-          {isSignUp ? "Register" : "Sign In"}
-        </button>
-      </form>
-      <p style={{ marginTop: "10px", color: "#ffe600" }}>{message}</p>
-      <p
-        style={{ cursor: "pointer", color: "#ff4d6d" }}
-        onClick={() => {
-          setIsSignUp(!isSignUp);
-          setMessage("");
-        }}
-      >
-        {isSignUp ? "Already have an account? Sign In" : "New user? Sign Up"}
-      </p>
+    <div className="login-page-container">
+      <div className="login-image-container">
+        <img src={jumpingJack} alt="Workout character" className="workout-gif" />
+      </div>
+      <div className="login-container">
+        <h2>{isSignUp ? "Sign Up" : "Sign In"}</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">{isSignUp ? "Register" : "Sign In"}</button>
+        </form>
+        {message && <p className="message">{message}</p>}
+        <p
+          className="toggle-sign"
+          onClick={() => {
+            setIsSignUp(!isSignUp);
+            setMessage("");
+          }}
+        >
+          {isSignUp ? "Already have an account? Sign In" : "New user? Sign Up"}
+        </p>
+        <p className="motivational-quote">
+          "The only bad workout is the one that didn't happen."
+        </p>
+      </div>
     </div>
   );
 }
